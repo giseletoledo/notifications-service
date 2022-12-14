@@ -1,6 +1,8 @@
+import { Content } from "./content";
+
 export interface NotificationProps {
     recipientId: string;
-    content: string;
+    content: Content;
     category: string;
     readAt?: Date | null;
     createdAt: Date;
@@ -13,10 +15,24 @@ export class Notification {
         this.props = props;
     }
 
+   
     /**
-     * set content    */
-    public set content(content: string) {
-        /* if (content.length < 5) {
+     * recipientId
+     */
+    public get recipientId() : string {
+        return this.props.recipientId;
+    }
+
+    public set recipientId(recipientId: string) {
+        this.props.recipientId = recipientId;
+    }
+    
+     /**
+     * content    */
+     public set content(content: Content) {
+        /*
+        Validação fica na classe content.ts
+        if (content.length < 5) {
             throw new Error();
             
         } */
@@ -24,9 +40,35 @@ export class Notification {
         this.props.content = content;
     }
 
-    /**
-     * get content  */
-    public get content(): string {
+
+    public get content(): Content {
         return this.props.content;
     }
+
+    
+    /**
+     * category   */
+    public set category(category : string) {
+        this.props.category = category;
+    }
+    
+    
+    public get category() : string {
+        return this.props.category;
+    }
+
+    public set readAt(readAt : Date | null | undefined) {
+        this.props.readAt = readAt;
+    }
+    
+    
+    public get readAt() : Date | null | undefined {
+        return this.props.readAt;
+    }
+    
+    
+    public get createAt() : Date {
+        return this.props.createdAt;
+    }
+    
 }
