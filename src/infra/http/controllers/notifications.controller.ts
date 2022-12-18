@@ -1,6 +1,7 @@
 import { Body,Controller, Get, Post } from '@nestjs/common';
 import { SendNotification } from 'src/application/usecases/send-notification';
 import { CreateNotificationBody } from '../dtos/create-notification-body';
+import { NotificationViewModel } from '../view-models/notification-view-model';
 
 @Controller('notifications')
 export class NotificationsController {
@@ -18,11 +19,6 @@ export class NotificationsController {
       category
     });
     
-    return { notification:{//formata a entity notification
-      id: notification.id,
-      content: notification.content.value,
-      category: notification.category,
-      recipientId: notification.recipientId,
-    } };
+    return { notification: NotificationViewModel.toHTTP(notification), };
   }
 }
