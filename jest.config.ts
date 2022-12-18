@@ -14,7 +14,7 @@ const config: Config = {   //habilita o autocomplete
 
         moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
           prefix: '<rootDir>/'
-        })
+        }),
 };
 
 export default config;//habilita o autocomplete
