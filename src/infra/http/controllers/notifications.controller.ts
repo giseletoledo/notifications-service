@@ -18,6 +18,11 @@ export class NotificationsController {
       category
     });
     
-    return { notification };
+    return { notification:{//formata a entity notification
+      id: notification.id,
+      content: notification.content.value,
+      category: notification.category,
+      recipientId: notification.recipientId,
+    } };
   }
 }
